@@ -88,6 +88,7 @@ class Rate(ModelNormal):
             'currency_code': (str,),  # noqa: E501
             'buying_rate': (str,),  # noqa: E501
             'selling_rate': (str,),  # noqa: E501
+            'quantity': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +103,7 @@ class Rate(ModelNormal):
         'currency_code': 'currencyCode',  # noqa: E501
         'buying_rate': 'buyingRate',  # noqa: E501
         'selling_rate': 'sellingRate',  # noqa: E501
+        'quantity': 'quantity',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -156,6 +158,7 @@ class Rate(ModelNormal):
             currency_code (str): [optional]  # noqa: E501
             buying_rate (str): [optional]  # noqa: E501
             selling_rate (str): [optional]  # noqa: E501
+            quantity (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

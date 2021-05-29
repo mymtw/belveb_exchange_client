@@ -86,8 +86,8 @@ class Rate(ModelNormal):
             'department': (str,),  # noqa: E501
             'currency': (str,),  # noqa: E501
             'currency_code': (str,),  # noqa: E501
-            'buying_rate': (float,),  # noqa: E501
-            'selling_rate': (float,),  # noqa: E501
+            'buying_rate': (str,),  # noqa: E501
+            'selling_rate': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -154,8 +154,8 @@ class Rate(ModelNormal):
             department (str): [optional]  # noqa: E501
             currency (str): [optional]  # noqa: E501
             currency_code (str): [optional]  # noqa: E501
-            buying_rate (float): [optional]  # noqa: E501
-            selling_rate (float): [optional]  # noqa: E501
+            buying_rate (str): [optional]  # noqa: E501
+            selling_rate (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

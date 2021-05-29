@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **department** | **str** |  | [optional] 
 **currency** | **str** |  | [optional] 
 **currency_code** | **str** |  | [optional] 
-**buying_rate** | [**Decimal**](Decimal.md) |  | [optional] 
-**selling_rate** | [**Decimal**](Decimal.md) |  | [optional] 
+**buying_rate** | **float** |  | [optional] 
+**selling_rate** | **float** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -23,4 +23,3 @@
 #!docs/README.md
 setup.py
 git_push.sh
-belveb_exchange_client/git_push.sh

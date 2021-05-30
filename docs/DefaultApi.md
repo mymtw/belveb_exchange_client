@@ -52,6 +52,7 @@ with belveb_exchange_client.ApiClient(configuration) as api_client:
         print("Exception when calling DefaultApi->get_rates_get: %s\n" % e)
 ```
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -70,6 +71,7 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
 
 ### HTTP response details
 | Status code | Description | Response headers |

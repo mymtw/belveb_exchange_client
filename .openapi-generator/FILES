@@ -19,7 +19,6 @@ belveb_exchange_client/rest.py
 docs/DefaultApi.md
 docs/Rate.md
 docs/Rates.md
-git_push.sh
 requirements.txt
 setup.cfg
 setup.py

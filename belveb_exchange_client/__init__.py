@@ -1,5 +1,3 @@
-# coding: utf-8
-
 # flake8: noqa
 
 """
@@ -12,22 +10,18 @@
 """
 
 
-from __future__ import absolute_import
-
 __version__ = "1.0.0"
-
-# import apis into sdk package
-from belveb_exchange_client.api.default_api import DefaultApi
 
 # import ApiClient
 from belveb_exchange_client.api_client import ApiClient
+
+# import Configuration
 from belveb_exchange_client.configuration import Configuration
+
+# import exceptions
 from belveb_exchange_client.exceptions import OpenApiException
+from belveb_exchange_client.exceptions import ApiAttributeError
 from belveb_exchange_client.exceptions import ApiTypeError
 from belveb_exchange_client.exceptions import ApiValueError
 from belveb_exchange_client.exceptions import ApiKeyError
-from belveb_exchange_client.exceptions import ApiAttributeError
 from belveb_exchange_client.exceptions import ApiException
-# import models into sdk package
-from belveb_exchange_client.models.rate import Rate
-

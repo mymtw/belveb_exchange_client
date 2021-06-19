@@ -1,3 +1,6 @@
-# do not import all apis into this module because that uses a lot of memory and stack frames
-# if you need the ability to import all apis from one package, import them with
-# from belveb_exchange_client.apis import DefaultApi
+from __future__ import absolute_import
+
+# flake8: noqa
+
+# import apis into api package
+from belveb_exchange_client.api.default_api import DefaultApi

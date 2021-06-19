@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_rates_get**
-> Rates get_rates_get(exchange_type)
+> list[Rate] get_rates_get(exchange_type)
 
 Bel VEB exchange rates client
 
@@ -16,10 +16,10 @@ Bel VEB exchange rates client
 
 * Bearer (JWT) Authentication (bearerAuth):
 ```python
+from __future__ import print_function
 import time
 import belveb_exchange_client
-from belveb_exchange_client.api import default_api
-from belveb_exchange_client.model.rates import Rates
+from belveb_exchange_client.rest import ApiException
 from pprint import pprint
 # Defining the host is optional and defaults to https://dbo.bveb.by/public/exchange/1
 # See configuration.py for a list of all supported configuration parameters.
@@ -40,28 +40,26 @@ configuration = belveb_exchange_client.Configuration(
 # Enter a context with an instance of the API client
 with belveb_exchange_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = default_api.DefaultApi(api_client)
-    exchange_type = "beznal" # str | 
+    api_instance = belveb_exchange_client.DefaultApi(api_client)
+    exchange_type = 'exchange_type_example' # str | 
 
-    # example passing only required values which don't have defaults set
     try:
         # Bel VEB exchange rates client
         api_response = api_instance.get_rates_get(exchange_type)
         pprint(api_response)
-    except belveb_exchange_client.ApiException as e:
+    except ApiException as e:
         print("Exception when calling DefaultApi->get_rates_get: %s\n" % e)
 ```
-
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **exchange_type** | **str**|  |
+ **exchange_type** | **str**|  | 
 
 ### Return type
 
-[**Rates**](Rates.md)
+[**list[Rate]**](Rate.md)
 
 ### Authorization
 
@@ -71,7 +69,6 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
-
 
 ### HTTP response details
 | Status code | Description | Response headers |

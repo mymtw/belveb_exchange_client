@@ -1,0 +1,104 @@
+openapi: 3.0.1
+info:
+  title: Bel VEB exchange rates
+  version: "1"
+servers:
+- url: https://dbo.bveb.by/public/exchange/1
+security:
+- bearerAuth: []
+paths:
+  /getRates:
+    get:
+      operationId: get_rates_get
+      parameters:
+      - explode: true
+        in: query
+        name: exchangeType
+        required: true
+        schema:
+          enum:
+          - beznal
+          - conv
+          - cards
+          - ib
+          - main
+          - cxrrte1
+          - cxrrte2
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rates'
+          description: ok
+      summary: Bel VEB exchange rates client
+      x-auth-type: None
+      x-throttling-tier: Unlimited
+      x-openapi-router-controller: belveb_exchange_client.controllers.default_controller
+components:
+  schemas:
+    Rate:
+      example:
+        date: "20210528160000"
+        quantity: "1"
+        sellingRate: "2.55"
+        currency: EUR
+        buyingRate: "2.53"
+        department: "226"
+        currencyCode: "978"
+      properties:
+        date:
+          example: "20210528160000"
+          format: timestamp
+          title: date
+          type: string
+        department:
+          example: "226"
+          format: int
+          title: department
+          type: string
+        currency:
+          enum:
+          - USD
+          - RUR
+          - EUR
+          - USD/RUR
+          - EUR/RUR
+          - CAD/USD
+          - GBP/USD
+          - EUR/USD
+          example: EUR
+          title: currency
+          type: string
+        currencyCode:
+          example: "978"
+          format: int
+          title: currencyCode
+          type: string
+        buyingRate:
+          example: "2.53"
+          title: buyingRate
+          type: string
+        sellingRate:
+          example: "2.55"
+          title: sellingRate
+          type: string
+        quantity:
+          example: "1"
+          format: int
+          title: quantity
+          type: string
+      title: Rate
+      type: object
+    Rates:
+      items:
+        $ref: '#/components/schemas/Rate'
+      type: array
+  securitySchemes:
+    bearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
+      x-bearerInfoFunc: belveb_exchange_client.controllers.security_controller_.info_from_bearerAuth
